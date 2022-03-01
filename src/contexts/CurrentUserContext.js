@@ -15,7 +15,7 @@ export default function CurrentUserContextProvider({ children }) {
   const [profile, setProfile] = useState();
   const [loadingProfile, setLoadingProfile] = useState(false);
   // const [savingProfile, setSavingProfile] = useState(false);
-  const isLoggedIn = !!profile;
+  // const isLoggedIn = !!profile;
   const [showModal, setShowModal] = useState(false);
 
   const getProfile = useCallback(async () => {
@@ -56,11 +56,21 @@ export default function CurrentUserContextProvider({ children }) {
     }
   }, []);
 
+  const createProfile = useCallback(async (form) => {
+    try {
+      await API.post('api/users/signup', form);
+      toast.success('Utilisateur ajouté !');
+    } catch (err) {
+      toast.error('Il y a eu une erreur lors de la création de votre compte.');
+    }
+  });
+
   return (
     <CurrentUserContext.Provider
       value={{
+        createProfile,
         getProfile,
-        isLoggedIn,
+        // isLoggedIn,
         loadingProfile,
         login,
         logout,

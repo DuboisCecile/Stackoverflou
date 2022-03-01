@@ -12,22 +12,17 @@ export default function LoginCard() {
 
   return (
     <>
-      <div
-        className="w-full flex items-center justify-center"
-        // style={{
-        //   backgroundImage: `url(${RegisterBg})`,
-        // }}
-      >
+      <div className="w-full flex items-center justify-center">
         <div className="relative flex flex-col min-w-0 w-full md:w-1/2 lg:w-3/12 shadow-lg rounded-lg bg-blue-500 border-0">
           <form
-            className="mt-6 flex-auto px-10 py-10"
+            className="flex-auto p-10 text-white"
             onSubmit={handleSubmit(login)}
             action="send"
             method="POST"
           >
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-white text-xs font-bold mb-4"
+                className="block uppercase text-xs font-bold mb-4"
                 htmlFor="email"
               >
                 Email
@@ -38,14 +33,14 @@ export default function LoginCard() {
                   {...register('email', {
                     required: 'Vous devez saisir un email',
                   })}
-                  className="w-full border-0 mt-2 px-3 py-3  text-black bg-white rounded text-sm shadow"
+                  className="w-full border-0 mt-2 p-3 text-black bg-white rounded text-sm shadow"
                 />
               </label>
             </div>
 
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-white text-xs font-bold mb-4"
+                className="block uppercase text-xs font-bold mb-4"
                 htmlFor="password"
               >
                 Mot de passe
@@ -63,7 +58,7 @@ export default function LoginCard() {
                     {...register('password', {
                       required: 'Vous devez saisir un mot de passe',
                     })}
-                    className="w-full border-0 px-3 py-3 mt-2 text-black bg-white rounded text-sm shadow"
+                    className="w-full border-0 p-3 mt-2 text-black bg-white rounded text-sm shadow"
                   />
                 </div>
               </label>
@@ -72,7 +67,7 @@ export default function LoginCard() {
             <div className="text-center mt-6">
               <button
                 type="submit"
-                className="bg-blue-400 text-white active:bg-blueGray600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                className="bg-blue-400  active:bg-blueGray600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
               >
                 Se connecter
               </button>

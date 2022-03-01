@@ -7,7 +7,7 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import Logout from '../screens/Logout';
 
 export default function Header() {
-  const { isLoggedIn = true } = useContext(CurrentUserContext);
+  const { profile } = useContext(CurrentUserContext);
   const [burger, setBurger] = useState(false);
 
   const handleBurgerToggle = () => {
@@ -42,24 +42,28 @@ export default function Header() {
           }`}
         >
           <ul className="w-full flex flex-col lg:flex-row list-none lg:ml-auto lg:justify-end pb-3">
-            <li>
-              <NavLink
-                to="/register"
-                className="px-3 py-2 flex items-center text-sm lg:text-md uppercase font-bold leading-snug text-white hover:opacity-75"
-                onClick={closeBurger}
-              >
-                S'inscrire
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/login"
-                className="px-3 py-2 flex items-center text-sm lg:text-md uppercase font-bold leading-snug text-white hover:opacity-75"
-                onClick={closeBurger}
-              >
-                Se connecter
-              </NavLink>
-            </li>
+            {!profile && (
+              <li>
+                <NavLink
+                  to="/register"
+                  className="px-3 py-2 flex items-center text-sm lg:text-md uppercase font-bold leading-snug text-white hover:opacity-75"
+                  onClick={closeBurger}
+                >
+                  S'inscrire
+                </NavLink>
+              </li>
+            )}
+            {!profile && (
+              <li>
+                <NavLink
+                  to="/login"
+                  className="px-3 py-2 flex items-center text-sm lg:text-md uppercase font-bold leading-snug text-white hover:opacity-75"
+                  onClick={closeBurger}
+                >
+                  Se connecter
+                </NavLink>
+              </li>
+            )}
             {/* <li>
               <NavLink
                 to="/logout"
@@ -69,7 +73,7 @@ export default function Header() {
                 Logout
               </NavLink>
             </li> */}
-            {isLoggedIn && (
+            {profile && (
               <li onClick={closeBurger} aria-hidden="true">
                 <Logout />
               </li>
