@@ -22,7 +22,11 @@ export default function Header() {
     <header className="w-full h-auto flex bg-blue-500">
       <div className="w-full px-4 justify-between items-center flex flex-wrap">
         <div className="my-4 w-full relative flex justify-between lg:w-auto lg:static lg:block ">
-          <NavLink className="logo-font text-3xl md:text-6xl" path="/" to="/">
+          <NavLink
+            className="logo-font text-white text-3xl md:text-6xl"
+            path="/"
+            to="/"
+          >
             Stackover<span className="blur-sm">flou</span>
           </NavLink>
           <button
@@ -42,6 +46,15 @@ export default function Header() {
           }`}
         >
           <ul className="w-full flex flex-col lg:flex-row list-none lg:ml-auto lg:justify-end pb-3">
+            <li>
+              <NavLink
+                to="/topics"
+                className="px-3 py-2 flex items-center text-sm lg:text-md uppercase font-bold leading-snug text-white hover:opacity-75"
+                onClick={closeBurger}
+              >
+                Topics
+              </NavLink>
+            </li>
             {!profile && (
               <li>
                 <NavLink

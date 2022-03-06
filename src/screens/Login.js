@@ -11,70 +11,69 @@ export default function LoginCard() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <>
-      <div className="w-full flex items-center justify-center">
-        <div className="relative flex flex-col min-w-0 w-full md:w-1/2 lg:w-3/12 shadow-lg rounded-lg bg-blue-500 border-0">
-          <form
-            className="flex-auto p-10 text-white"
-            onSubmit={handleSubmit(login)}
-            action="send"
-            method="POST"
-          >
-            <div className="relative w-full mb-3">
-              <label
-                className="block uppercase text-xs font-bold mb-4"
-                htmlFor="email"
-              >
-                Email
-                <input
-                  name="email"
-                  type="text"
-                  placeholder="Email"
-                  {...register('email', {
-                    required: 'Vous devez saisir un email',
-                  })}
-                  className="w-full border-0 mt-2 p-3 text-black bg-white rounded text-sm shadow"
+    <div className="w-full flex items-center justify-center items-stretch justify-items-stretch">
+      <div className="relative flex flex-col min-w-0 w-full md:w-1/2 lg:w-3/12 shadow-lg rounded-lg bg-blue-500 border-0">
+        <form
+          className="flex-auto p-10 text-white"
+          onSubmit={handleSubmit(login)}
+          action="send"
+          method="POST"
+        >
+          <div className="relative w-full mb-3">
+            <label
+              className="block uppercase text-xs font-bold mb-4"
+              htmlFor="email"
+            >
+              Email
+              <input
+                name="email"
+                type="text"
+                placeholder="Email"
+                autoComplete="email"
+                {...register('email', {
+                  required: 'Vous devez saisir un email',
+                })}
+                className="w-full border-0 mt-2 p-3 text-black bg-white rounded text-sm shadow"
+              />
+            </label>
+          </div>
+
+          <div className="relative w-full mb-3">
+            <label
+              className="block uppercase text-xs font-bold mb-4"
+              htmlFor="password"
+            >
+              Mot de passe
+              <div className="flex justify-end">
+                <FontAwesomeIcon
+                  className="absolute cursor-pointer flex z-50 mt-6 mr-3 text-black"
+                  icon={showPassword ? faEye : faEyeSlash}
+                  onClick={() => setShowPassword(!showPassword)}
                 />
-              </label>
-            </div>
+                <input
+                  name="password"
+                  type={showPassword ? 'text' : 'password'}
+                  autoComplete="password"
+                  placeholder="********"
+                  {...register('password', {
+                    required: 'Vous devez saisir un mot de passe',
+                  })}
+                  className="w-full border-0 p-3 mt-2 text-black bg-white rounded text-sm shadow"
+                />
+              </div>
+            </label>
+          </div>
 
-            <div className="relative w-full mb-3">
-              <label
-                className="block uppercase text-xs font-bold mb-4"
-                htmlFor="password"
-              >
-                Mot de passe
-                <div className="flex justify-end">
-                  <FontAwesomeIcon
-                    className="absolute cursor-pointer flex z-50 mt-6 mr-3 text-black"
-                    icon={showPassword ? faEye : faEyeSlash}
-                    onClick={() => setShowPassword(!showPassword)}
-                  />
-                  <input
-                    name="password"
-                    type={showPassword ? 'text' : 'password'}
-                    autoComplete="current-password"
-                    placeholder="********"
-                    {...register('password', {
-                      required: 'Vous devez saisir un mot de passe',
-                    })}
-                    className="w-full border-0 p-3 mt-2 text-black bg-white rounded text-sm shadow"
-                  />
-                </div>
-              </label>
-            </div>
-
-            <div className="text-center mt-6">
-              <button
-                type="submit"
-                className="bg-blue-400  active:bg-blueGray600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-              >
-                Se connecter
-              </button>
-            </div>
-          </form>
-        </div>
+          <div className="text-center mt-6">
+            <button
+              type="submit"
+              className="bg-blue-400  active:bg-blueGray600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+            >
+              Se connecter
+            </button>
+          </div>
+        </form>
       </div>
-    </>
+    </div>
   );
 }

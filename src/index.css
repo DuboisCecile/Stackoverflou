@@ -10,5 +10,14 @@
 
 .logo-font {
   font-family: 'Rampart One', cursive;
-  color: white;
+}
+
+.stackoverflou-home {
+  font-size: 2rem;
+}
+
+@media only screen and (min-device-width: 768px) {
+  .stackoverflou-home {
+    font-size: 8rem;
+  }
 }

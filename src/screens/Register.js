@@ -31,7 +31,7 @@ export default function Register() {
   };
 
   return (
-    <div className="w-full flex items-center justify-center">
+    <div className="min-h-full w-full flex items-center justify-center">
       <div className=" flex flex-col min-w-0 w-full md:w-1/2 lg:w-1/3 shadow-lg rounded-lg bg-blue-500 border-0">
         <form
           onSubmit={handleSubmit(confirm)}
@@ -166,8 +166,6 @@ export default function Register() {
             </button>
           </div>
         </form>
-        {/* </div>
-        </div> */}
       </div>
     </div>
   );
